@@ -37,7 +37,10 @@ public class BoardVO {
 	}
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
-	};
+	}
+	public String getDate() {
+		return String.valueOf(regdate).substring(0,10);
+	}
 	
 	
 

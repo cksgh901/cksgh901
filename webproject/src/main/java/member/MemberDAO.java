@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import jdbc.JdbcUtil;
 
@@ -119,5 +121,30 @@ public class MemberDAO {
 			JdbcUtil.close(pstmt);
 		}
 		return result;
+	}
+	public List<MemberVO> select(Connection conn) {
+		Statement stmt = null;
+		ResultSet rs = null;
+		MemberVO vo = null;
+		List<MemberVO>list = new ArrayList<MemberVO>();
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("select * from member ");
+			
+			while (rs.next()) {
+				vo = new MemberVO();
+				vo.setMemberno(rs.getInt("memberno"));
+				vo.setId(rs.getString("id"));
+				vo.setName(rs.getString("name"));
+				vo.setRegdate(rs.getTimestamp("regdate"));
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
+		}
+		return list;
 	}
 }

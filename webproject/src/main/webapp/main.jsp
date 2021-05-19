@@ -12,6 +12,7 @@
 ${loginInfo.name }님 반갑습니다.
 <a href="/webproject/member/logout.do">로그아웃</a>
 <a href="/webproject/member/edit.do">회원정보변경</a>
+<a href="/webproject/board/index.do">글목록</a>
 </c:if>
 <c:if test="${empty loginInfo }">
 <a href="/webproject/member/login.do">로그인</a>
