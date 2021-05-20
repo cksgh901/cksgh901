@@ -8,6 +8,7 @@ public class BoardVO {
 	private String content;
 	private int readcnt;
 	private Timestamp regdate;
+
 	public int getBoardno() {
 		return boardno;
 	}
@@ -41,6 +42,7 @@ public class BoardVO {
 	public String getDate() {
 		return String.valueOf(regdate).substring(0,10);
 	}
+	
 	
 	
 

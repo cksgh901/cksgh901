@@ -32,7 +32,7 @@ List<BoardVO> list = (List<BoardVO>)request.getAttribute("list");
 		<td><%=list.get(i).getBoardno() %> </td>
 		<td><a href="detail.do?boardno=<%=list.get(i).getBoardno()%>"> <%=list.get(i).getTitle() %></a></td> 
 		<td><%=list.get(i).getReadcnt() %></td>
- 		<td><%=list.get(i).getRegdate() %></td>
+ 		<td><%=list.get(i).getDate() %></td>
 		</tr>
 	<%}%>
 		</tbody>
