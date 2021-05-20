@@ -138,27 +138,7 @@ public class BoardDAO {
 		}
 		return result;
 	}
-
-	public BoardVO count(Connection conn) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		BoardVO vo = null;
-		try {
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select count(*) as count from board ");
-			if (rs.next()) {
-				vo = new BoardVO();
-				vo.getCount();
-				
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			JdbcUtil.close(stmt);
-			JdbcUtil.close(rs);
-		}
-		return vo;
-	}
+	
 }
 
 
